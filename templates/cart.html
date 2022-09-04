@@ -1,0 +1,308 @@
+{% extends 'base.html' %} 
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+html {
+  background: #7a9eb4;
+  font: 62.5%/1.5em "Trebuchet Ms", helvetica;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  /* font-smoothing: antialiased; */
+}
+
+@font-face {
+    font-family: 'Shopper';
+    src: url('http://www.shopperfont.com/font/Shopper-Std.ttf');
+}
+
+.shopper {
+  text-transform: lowercase;
+  font: 2em 'Shopper', sans-serif;
+  line-height: 0.5em;
+  display: inline-block;
+}
+
+
+
+h1 {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 2.5em;
+}
+
+p {
+  font-size: 1.5em;
+  color: #000000;
+}
+
+input {
+  border: 0.3em solid #ff3a20d0;
+  padding: 0.5em 0.3em; 
+  font-size: 1.4em;
+  color: #8a8a8a;
+  text-align: center;
+}
+
+img {
+  max-width: 9em;
+  width: 100%;
+  overflow: hidden; 
+  margin-right: 1em;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  max-width: 75em;
+  width: 95%;
+  margin: 40px auto;  
+  overflow: hidden;
+  position: relative;
+  
+  border-radius: 0.6em;
+  background: #ecf0f1;
+  box-shadow: 0 0.5em 0 rgba(138, 148, 152, 0.2);
+}
+
+.heading {
+  padding: 1em;
+  position: relative;
+  z-index: 1;
+  color: #f7f7f7;
+  background: #f34d35;
+}
+
+.cart {
+  margin: 2.5em;
+  overflow: hidden;
+}
+
+.cart.is-closed {
+  height: 0;
+  margin-top: -2.5em;
+}
+
+.table {
+  background: #ffffff;
+  border-radius: 0.6em;
+  overflow: hidden;
+  clear: both;
+  margin-bottom: 1.8em;
+}
+
+
+.layout-inline > * {
+  display: inline-block;
+}
+
+.align-center {
+  text-align: center;
+}
+/* ======================= */
+.th {
+  background: #fa2222e1;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.tf {
+  background: #000000;
+  text-transform: uppercase;
+  text-align: right;
+  font-size: 1.2em;  
+}
+
+.tf p {
+  color: #fff;
+  font-weight: bold;
+}
+
+.col {
+  padding: 1em;
+  width: 12%;
+}
+
+.col-pro {
+  width: 44%;
+}
+
+.col-pro > * {
+  vertical-align: middle;
+}
+
+.col-qty {
+  text-align: center;
+  width: 17%;
+}
+
+.col-numeric p {
+  font: bold 1.8em helvetica;
+}
+
+.col-total p {
+  color: #12c8b1;
+}
+
+.tf .col {
+  width: 20%;
+}
+
+.row > div {
+  vertical-align: middle;
+}
+
+.row-bg2 {
+  background: #f7f7f7;
+}
+
+.visibility-cart {
+  position: absolute;
+  color: #fff;
+  top: 0.5em;
+  right: 0.5em;
+  font:  bold 2em arial;
+  border: 0.16em solid #fff;
+  border-radius: 2.5em;
+  padding: 0 0.22em 0 0.25em ;
+}
+.button {
+  background-color: #ff3e3e; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+
+.button1 {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.button2:hover {
+  box-shadow: 0 12px 16px 0 rgba(43, 8, 8, 0.329),0 17px 50px 0 rgba(0, 0, 0, 0.596);
+}
+.button {
+  background-color: #f4511e;
+  border: none;
+  color: white;
+  padding: 16px 20px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  opacity: 0.6;
+  transition: 0.3s;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+}
+.button:hover {opacity: 1}
+/* ================ */
+.button {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 10px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #fa0000;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px rgb(134, 143, 189);
+}
+
+.button:hover {background-color: #3e8e41}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px rgb(114, 107, 107);
+  transform: translateY(4px);
+}
+h3 {
+  text-align: right;
+}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="heading">
+      <h1>
+        <span class="shopper">NFT</span> Shopping Cart
+      </h1>
+      
+      <!-- <a href="#" class="visibility-cart transition is-open"></a>     -->
+    </div>
+    
+    <div class="cart transition is-open">
+      
+      
+      
+      
+      <div class="table">
+        
+        <div class="layout-inline row th">
+          <div class="col col-pro">Product</div>
+          <div class="col col-price align-center "> 
+          Name
+          </div>
+          <div class="col col-name align-center "> Price</div>
+          <div class="col col-qty align-center">QTY</div>
+          <!-- <div class="col">ID</div> -->
+          <div class="col">Total</div>
+          
+        </div>
+        {% for i in ci %} 
+        <div class="layout-inline row">
+          <div class="col col-pro layout-inline">
+           <a href="{{i.prodt.get_url}}"> <img src="{{i.prodt.img.url}}" alt="{{i.prodt.name}}" /></a>
+           <a href="{% url 'remove' i.prodt.id %}"><button class="button">Delete</button></a>
+          </div>
+          <div class="col col-name col-numeric align-center ">
+            <spam></spam>
+            <p>{{i.prodt.name}}</p>
+          </div>
+  
+          <div class="col col-price col-numeric align-center ">
+            <spam></spam>
+            <span>{{i.prodt.price}}</span>
+          </div>
+  
+          <div class="col col-qty layout-inline">
+            <a href="{% url 'cart_decrement' i.prodt.id %}" class="qty qty-minus"><i class="fa fa-minus" style="font-size:10px;color:red"></i></a>&nbsp;{{i.quan}}&nbsp;<a href="{% url 'addcart' i.prodt.id %}" class="qty qty-plus"> <i class="fa fa-plus" style="font-size:10px;color:red"></i></a>
+           
+          </div>
+          
+          <div class="col col-vat col-numeric">
+            <span>{{i.total}}</span>
+          </div>
+          <div class="col col-total col-numeric"> 
+                
+          </div>
+        </div>
+        {% endfor %}
+        <h3>Total:&nbsp;{{t}}&nbsp;&nbsp;</h3>
+        <br>
+   </div>
+</body>
+  </html>
+{% endblock %}

@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <!-- basic -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title>Crism</title>
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- bootstrap css -->
+      <link rel="stylesheet" type="text/css" href="{% static 'fe/css/bootstrap.min.css' %}">
+      <!-- style css -->
+      <link rel="stylesheet" type="text/css" href="{% static 'fe/css/style.css' %}">
+      <!-- Responsive-->
+      <link rel="stylesheet" href="{% static 'fe/css/responsive.css' %}">
+      <!-- fevicon -->
+      <link rel="icon" href="{% static 'fe/images/fevicon.png' %}" type="image/gif" />
+      <!-- Scrollbar Custom CSS -->
+      <link rel="stylesheet" href="{% static 'fe/css/jquery.mCustomScrollbar.min.css' %}">
+      <!-- Tweaks for older IEs-->
+      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/{% static 'fe/css/font-awesome.css' %}">
+      <!-- owl stylesheets -->
+      <link href="https://fonts.googleapis.com/css?family=Great+Vibes|Poppins:400,700&display=swap&subset=latin-ext" rel="stylesheet">
+      <link rel="stylesheet" href="{% static 'fe/cs/owl.carousel.min.css' %}">
+      <link rel="stylesoeet" href="{% static 'fe/cs/owl.theme.default.min.css' %}">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+   </head>
+
+   
+         <div class="dropdown">
+            <button class="btn btn-warning" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Fillter button
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a c href="/">All</a><br>
+              {% for i in ct %}
+              <a href={{i.get_url}}>{{i.name}}></a><br>
+              {% endfor %}
+            </div>
+          </div>
+
+
+         {% for i in pr %}
+         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+            <div class="glasses_box">
+               <figure><a class="imgover" href="{{i.get_url}}"><img src="{{i.img.url}}" alt="#"/></figure></a>
+               <h3 class="heading">{{i.name}}</h3>
+               <p>{{i.desc}}</p>
+               <p>price:{{i.price}}RS</p>
+               <p>stock left:{{i.stock}}</p>
+               <button class="btn btn-outline-danger" type="submit">check it</button>
+            </div>
+          </div> 
+         {% endfor %}
+
+   
+      <script src="{% static 'fe/js/jquery.min.js' %}"></script>
+      <script src="{% static 'fe/js/popper.min.js' %}"></script>
+      <script src="{% static 'fe/js/bootstrap.bundle.min.js' %}"></script>
+      <script src="{% static 'fe/js/jquery-3.0.0.min.js' %}"></script>
+      <script src="{% static 'fe/js/plugin.js' %}"></script>
+      <script src="{% static 'fe/js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+      <script src="{% static 'fe/js/custom.js' %}"></script>
+      <script src="{% static 'fe/js/owl.carousel.js' %}"></script>
+      <script>
+         if ( $(window).width() > 990) { 
+         
+          $('.owl-carousel').owlCarousel({
+             stagePadding: 350,
+             loop:true,
+             margin:35,
+             nav:true,
+             responsive:{
+                 0:{
+                     items:1
+                 },
+                 600:{
+                     items:1
+                 },
+                 1000:{
+                     items:1
+                 }
+             }
+         })
+         
+          }
+         
+         
+         
+          else { 
+         
+          $('.owl-carousel').owlCarousel({
+             stagePadding: 70,
+             loop:true,
+             margin:10,
+             nav:true,
+             responsive:{
+                 0:{
+                     items:1
+                 },
+                 600:{
+                     items:1
+                 },
+                 1000:{
+                     items:1
+                 }
+             }
+         })
+         
+           }
+         
+                 
+               
+      </script>
+      <script type="text/javascript">
+         $(window).scroll(function(){
+         var sticky = $('#navbar'),
+         scroll = $(window).scrollTop();
+         
+         if (scroll >= 600) sticky.addClass('fix-nav');
+         else sticky.removeClass('fix-nav');
+         });
+      </script>
+   </body>
+</html>
+{% endblock %}
