@@ -1,4 +1,4 @@
-# NFT (Non-fungible token)
+# NFT (Non-fungible token).
 NFt is a fully responsive Non-fungible token website, Responsive for all devices, build using Python, Django, HTML, CSS, and JavaScript..
 The idea of the project is to developing an online market to sell only specially abled persons tokens.
 ![Screenshot (161)](https://user-images.githubusercontent.com/112808009/194699700-19d7e2d4-8ceb-4112-97c3-309604f1b135.png)
